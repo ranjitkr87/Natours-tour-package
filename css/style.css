@@ -677,7 +677,8 @@ body {
   border-radius: 50%;
   z-index: 2000;
   box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
-  text-align: center; }
+  text-align: center;
+  cursor: pointer; }
   @media (max-width: 56.25em) {
     .navigation__button {
       top: 4.5rem;
@@ -745,20 +746,37 @@ body {
   opacity: 1; }
 
 .navigation__icon {
-  font-size: 2.5rem;
-  color: #777;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  cursor: pointer; }
-  .navigation__icon-1 {
-    opacity: 1; }
-  .navigation__icon-2 {
-    opacity: 0; }
-  .navigation__icon:hover {
-    font-size: 2.8rem;
-    color: #55c57a; }
+  position: relative;
+  margin-top: 3.5rem; }
+  .navigation__icon, .navigation__icon::before, .navigation__icon::after {
+    width: 3rem;
+    height: 2px;
+    background-color: #333;
+    display: inline-block; }
+  .navigation__icon::before, .navigation__icon::after {
+    content: "";
+    position: absolute;
+    left: 0%;
+    transition: all .2s; }
+  .navigation__icon::before {
+    top: -.8rem; }
+  .navigation__icon::after {
+    top: .8rem; }
+
+.navigation__button:hover .navigation__icon::before {
+  top: -1rem; }
+
+.navigation__button:hover .navigation__icon::after {
+  top: 1rem; }
+
+.navigation__checkbox:checked + .navigation___button .navigation__icon {
+  background-color: transparent; }
+
+.navigation__checkbox:checked + .navigation___button .navigation__icon::before {
+  transform: rotate(45deg); }
+
+.navigation__checkbox:checked + .navigation___button .navigation__icon::after {
+  transform: rotate(-45deg); }
 
 .section-about {
   background-color: #f7f7f7;
