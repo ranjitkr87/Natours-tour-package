@@ -35,7 +35,6 @@ body{
 
 		@include respond(phone){
 			letter-spacing: .5rem;
-			font-size: 5rem;
 		}
 	}
 }
@@ -50,7 +49,7 @@ body{
 	letter-spacing: 2px;
 	transition: all .2s;
 
-	@include respond(teb-phone){		
+	@include respond(tab-port){		
 		font-size: 3rem;
 	}
 	@include respond(phone){
